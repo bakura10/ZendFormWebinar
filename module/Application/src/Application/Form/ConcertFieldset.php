@@ -11,8 +11,8 @@ class ConcertFieldset extends Fieldset
         parent::__construct('concert');
 
         $this->add(array(
-            'type'    => 'Application\Form\BandFieldset',
-            'name'    => 'band',
+            'type'    => 'Application\Form\GroupeFieldset',
+            'name'    => 'groupe',
             'options' => array(
                 'label' => 'Groupe'
             )
@@ -20,7 +20,7 @@ class ConcertFieldset extends Fieldset
 
         $this->add(array(
             'type'    => 'Zend\Form\Element\Number',
-            'name'    => 'availableSeats',
+            'name'    => 'nombreSieges',
             'options' => array(
                 'label' => 'Nombre de sièges dans la salle'
             ),

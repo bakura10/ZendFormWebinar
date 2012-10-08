@@ -2,11 +2,11 @@
 
 namespace Application\Entity;
 
-class Band
+class Groupe
 {
     /** @var string */
-    public $name;
+    public $nom;
 
     /** @var string */
-    public $websiteUrl;
+    public $site;
 }

@@ -4,9 +4,9 @@ namespace Application\Entity;
 
 class Concert
 {
-    /** @var Band */
-    public $band;
+    /** @var Groupe */
+    public $groupe;
 
     /** @var int */
-    public $availableSeats;
+    public $nombreSieges;
 }

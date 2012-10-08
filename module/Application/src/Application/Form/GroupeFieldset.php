@@ -5,14 +5,14 @@ namespace Application\Form;
 use Zend\Form\Fieldset;
 use Zend\InputFilter\InputFilterProviderInterface;
 
-class BandFieldset extends Fieldset implements InputFilterProviderInterface
+class GrouêFieldset extends Fieldset implements InputFilterProviderInterface
 {
     public function __construct()
     {
-        parent::__construct('band');
+        parent::__construct('groupe');
 
         $this->add(array(
-            'name'    => 'name',
+            'name'    => 'nom',
             'options' => array(
                 'label' => 'Nom'
             )
@@ -20,7 +20,7 @@ class BandFieldset extends Fieldset implements InputFilterProviderInterface
 
         $this->add(array(
             'type'    => 'Zend\Form\Element\Url',
-            'name'    => 'websiteUrl',
+            'name'    => 'site',
             'options' => array(
                 'label' => 'Site web'
             )
@@ -33,7 +33,7 @@ class BandFieldset extends Fieldset implements InputFilterProviderInterface
     public function getInputFilterSpecification()
     {
         return array(
-            'name' => array(
+            'nom' => array(
                 'required'   => true,
                 'filters'    => array(
                     array('name' => 'StringTrim')
