@@ -1,0 +1,23 @@
+<?php
+
+$form = $this->form;
+$form->setAttribute('action', $this->url(null, array(), true))
+     ->prepare();
+
+$concert = $form->get('concert');
+$groupe  = $concert->get('groupe');
+
+echo $this->form()->openTag($form);
+
+echo $this->formLabel($concert->get('nombreSieges'));
+echo $this->formNumber($concert->get('nombreSieges'));
+echo $this->formElementErrors($concert->get('nombreSieges'));
+
+echo $this->formRow($groupe->get('nom'));
+echo $this->formRow($groupe->get('site'));
+
+echo $this->formSubmit($form->get('submit'));
+
+echo $this->form()->closeTag($form);
+
+?>

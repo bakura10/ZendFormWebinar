@@ -2,19 +2,24 @@
 
 namespace Application\Form;
 
+use Application\Entity\Groupe;
 use Zend\Form\Fieldset;
 use Zend\InputFilter\InputFilterProviderInterface;
+use Zend\Stdlib\Hydrator\ObjectProperty;
 
-class GrouêFieldset extends Fieldset implements InputFilterProviderInterface
+class GroupeFieldset extends Fieldset implements InputFilterProviderInterface
 {
     public function __construct()
     {
         parent::__construct('groupe');
 
+        $this->setObject(new Groupe())
+             ->setHydrator(new ObjectProperty());
+
         $this->add(array(
             'name'    => 'nom',
             'options' => array(
-                'label' => 'Nom'
+                'label' => 'Nom du groupe'
             )
         ));
 
@@ -22,7 +27,7 @@ class GrouêFieldset extends Fieldset implements InputFilterProviderInterface
             'type'    => 'Zend\Form\Element\Url',
             'name'    => 'site',
             'options' => array(
-                'label' => 'Site web'
+                'label' => 'Site web du groupe'
             )
         ));
     }
