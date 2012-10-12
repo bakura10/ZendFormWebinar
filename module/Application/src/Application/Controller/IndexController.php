@@ -11,6 +11,7 @@ namespace Application\Controller;
 
 use Application\Entity\Concert;
 use Application\Form\CreerConcert;
+use Application\Form\UpdateConcert;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
@@ -25,12 +26,29 @@ class IndexController extends AbstractActionController
     {
         $form = new CreerConcert();
 
-        $request = $this->request;
-        if ($request->isPost()) {
+        if ($this->request->isPost()) {
             $concert = new Concert();
-
             $form->bind($concert);
-            $form->setData($request->getPost());
+            $form->setData($this->request->getPost());
+
+            if ($form->isValid()) {
+                var_dump($concert);
+            }
+        }
+
+        return new ViewModel(array(
+            'form' => $form
+        ));
+    }
+
+    public function updateConcertAction()
+    {
+        $form = new UpdateConcert();
+        $concert = [...]; // récupère de la base de données par exemple
+        $form->bind($concert);
+
+        if ($this->request->isPost()) {
+            $form->setData($this->request->getPost());
 
             if ($form->isValid()) {
                 var_dump($concert);

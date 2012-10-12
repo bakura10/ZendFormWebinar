@@ -1,0 +1,17 @@
+<?php
+
+$form = $this->form;
+$form->setAttribute('action', $this->url(null, array(), true))
+     ->prepare();
+
+$concert = $form->get('concert');
+
+echo $this->form()->openTag($form);
+
+echo $this->formRow($concert->get('nombreSieges'));
+
+echo $this->formSubmit($form->get('submit'));
+
+echo $this->form()->closeTag($form);
+
+?>
