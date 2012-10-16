@@ -10,6 +10,7 @@
 namespace Application\Controller;
 
 use Application\Entity\Concert;
+use Application\Entity\Groupe;
 use Application\Form\CreerConcert;
 use Application\Form\UpdateConcert;
 use Zend\Mvc\Controller\AbstractActionController;
@@ -44,7 +45,14 @@ class IndexController extends AbstractActionController
     public function updateConcertAction()
     {
         $form = new UpdateConcert();
-        $concert = [...]; // récupère de la base de données par exemple
+
+        // On récupère un concert de la base de données, par exemple (ici pour que ça fonctionne,
+        // je le créé "en dur")
+        $concert = new Concert();
+        $concert->groupe = new Groupe();
+        $concert->groupe->nom = 'Explosions In The Sky';
+        $concert->groupe->site = 'http://www.explosionsinthesky.com';
+        
         $form->bind($concert);
 
         if ($this->request->isPost()) {
